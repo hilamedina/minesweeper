@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { hila } from './utils/utils';
+import positionOfMines from './utils/utils';
 
 function App() {
   const [dimension, setDimension] = useState(0);
@@ -64,11 +64,15 @@ function App() {
     }
     setBoard(arr);
   };
+  const hila = () => {
+    positionOfMines(board, dimension, mine);
+  };
 
   useEffect(() => {
     makeChessBoard();
+    positionOfMines(board, dimension, mine);
     console.log('hila', board);
-  }, [dimension]);
+  }, [dimension, mine]);
 
   return (
     <div className="App">
@@ -100,7 +104,11 @@ function App() {
       <div style={boardBox}>
         {board.map((row) => {
           return row.map((item) => {
-            return <div key={`${item.x}-${item.y}`} style={white}></div>;
+            return (
+              <div key={`${item.x}-${item.y}`} style={white}>
+                {board[item.x][item.y].isMine ? '💥' : 'no'}
+              </div>
+            );
           });
         })}
       </div>
