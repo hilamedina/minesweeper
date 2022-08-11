@@ -25,21 +25,6 @@ function App() {
     margin: 'auto',
   };
 
-  // const makeBoard = () => {
-  //   const array2D = Array(Number(dimension))
-  //     .fill()
-  //     .map((_, indexH) =>
-  //       Array(Number(dimension))
-  //         .fill()
-  //         .map((_, indexW) => indexW)
-  //     );
-  //   setMinesWeeper(array2D);
-  //   console.log(minesweeper);
-  // };
-  // useEffect(() => {
-  //   makeBoard();
-  // }, [dimension]);
-
   const makeChessBoard = () => {
     let arr = [];
 
